@@ -445,50 +445,115 @@
 <!-- ── TECH SPOTLIGHT ── -->
 <section id="tecnologia">
   <div class="container">
+    <div class="skin-sel-header reveal">
+      <span class="section-tag">Nuestra tecnología</span>
+      <h2 class="section-title">¿Qué láser es el <em style="font-style:normal;color:var(--gold)">tuyo</em>?</h2>
+      <p class="section-subtitle">Pulsa en tu tono de piel. En segundos sabrás qué tecnología te corresponde.</p>
+    </div>
     <div class="tech-grid">
       <div class="tech-image-wrap reveal">
         <img src="https://eternaclinic.es/wp-content/uploads/2025/05/laser-hair-removal-in-the-beauty-salon-woman-having-professional-laser-epilation-procedure-of-arm-19239092.jpeg" alt="Depilación láser Alejandrita y Neodimio Nd:YAG en Eterna Clinic Alcobendas" loading="lazy">
+        <div class="tech-scan-line"></div>
         <div class="tech-badge-float">
           <strong>✓ Apta para pieles oscuras</strong>
           Tecnología Nd:YAG 1064nm
         </div>
       </div>
       <div class="tech-content reveal">
-        <span class="section-tag">Nuestra tecnología estrella</span>
-        <h2>Alejandrita &amp; <em>Neodimio Nd:YAG</em><br>— Para <em>toda</em> piel</h2>
-        <p class="intro">
-          La mayoría de clínicas solo tratan pieles claras. En Eterna Clinic tenemos <strong>las dos tecnologías líderes</strong> para garantizar resultados seguros y eficaces en cualquier tipo de piel, del Fitzpatrick I al VI.
-        </p>
-        <div class="tech-features">
+        <p class="skin-sel-label">Escala Fitzpatrick — selecciona tu tono:</p>
+        <div class="skin-circles" role="group" aria-label="Tonos de piel Fitzpatrick">
+          <button class="skin-circle" data-fitz="1" style="--sc:#F5D5A8" aria-label="Fitzpatrick I, piel muy clara"><span class="sc-num">I</span></button>
+          <button class="skin-circle" data-fitz="2" style="--sc:#E8B97A" aria-label="Fitzpatrick II, piel clara"><span class="sc-num">II</span></button>
+          <button class="skin-circle" data-fitz="3" style="--sc:#D4956A" aria-label="Fitzpatrick III, piel intermedia"><span class="sc-num">III</span></button>
+          <button class="skin-circle" data-fitz="4" style="--sc:#B87044" aria-label="Fitzpatrick IV, piel morena"><span class="sc-num">IV</span></button>
+          <button class="skin-circle" data-fitz="5" style="--sc:#8B4A2A" aria-label="Fitzpatrick V, piel morena oscura"><span class="sc-num">V</span></button>
+          <button class="skin-circle" data-fitz="6" style="--sc:#5C2E15" aria-label="Fitzpatrick VI, piel muy oscura"><span class="sc-num">VI</span></button>
+        </div>
+
+        <!-- idle state -->
+        <div id="skinIdle" class="skin-idle">
           <div class="tech-feature">
             <div>
               <h4>Láser Alejandrita — 755nm</h4>
-              <p>El estándar de oro para pieles claras y oliváceas. Máxima absorción en melanina, sesiones ultrarrápidas y resultado desde la primera aplicación.</p>
-              <div class="skin-badges" style="margin-top:8px">
-                <div class="skin-badge" style="background:#F5D5A8" title="Fitzpatrick I"></div>
-                <div class="skin-badge" style="background:#E8B97A" title="Fitzpatrick II"></div>
-                <div class="skin-badge" style="background:#D4956A" title="Fitzpatrick III"></div>
-                <div class="skin-badge" style="background:#B87044" title="Fitzpatrick IV"></div>
+              <p>Estándar de oro para pieles claras y oliváceas (Fitzpatrick I–IV). Máxima eficacia por sesión.</p>
+              <div class="skin-badges" style="margin-top:10px">
+                <div class="skin-badge" style="background:#F5D5A8"></div>
+                <div class="skin-badge" style="background:#E8B97A"></div>
+                <div class="skin-badge" style="background:#D4956A"></div>
+                <div class="skin-badge" style="background:#B87044"></div>
               </div>
             </div>
           </div>
           <div class="tech-feature">
             <div>
               <h4>Láser Neodimio Nd:YAG — 1064nm</h4>
-              <p>La única tecnología segura y eficaz en pieles morenas y oscuras. Penetra profundo sin afectar la melanina superficial. Resultado donde otros fallan.</p>
-              <div class="skin-badges" style="margin-top:8px">
-                <div class="skin-badge" style="background:#B87044" title="Fitzpatrick IV"></div>
-                <div class="skin-badge" style="background:#8B4A2A" title="Fitzpatrick V"></div>
-                <div class="skin-badge" style="background:#5C2E15" title="Fitzpatrick VI"></div>
+              <p>La única tecnología segura en pieles morenas y oscuras (Fitzpatrick IV–VI). Donde otros fallan, nosotros llegamos.</p>
+              <div class="skin-badges" style="margin-top:10px">
+                <div class="skin-badge" style="background:#B87044"></div>
+                <div class="skin-badge" style="background:#8B4A2A"></div>
+                <div class="skin-badge" style="background:#5C2E15"></div>
               </div>
             </div>
           </div>
+          <p class="skin-idle-hint">← Pulsa un tono para ver tu recomendación personalizada</p>
         </div>
-        <a href="https://wa.me/34624220321?text=Hola,%20me%20gustar%C3%ADa%20saber%20qu%C3%A9%20l%C3%A1ser%20es%20el%20m%C3%A1s%20adecuado%20para%20mi%20tipo%20de%20piel" class="btn btn-primary">Descubrir cuál es el tuyo →</a>
+
+        <!-- result card (hidden until selection) -->
+        <div id="skinResult" class="skin-result" hidden>
+          <div class="sr-top">
+            <div class="sr-swatch" id="srSwatch"></div>
+            <div>
+              <div class="sr-tag" id="srTag"></div>
+              <div class="sr-fitz" id="srFitz"></div>
+            </div>
+          </div>
+          <div class="sr-laser" id="srLaser"></div>
+          <p class="sr-desc" id="srDesc"></p>
+          <a href="#" class="btn btn-primary" id="srCTA" style="display:block;text-align:center">Reservar consulta gratuita →</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  const data = {
+    1: { laser:'Alejandrita 755nm', fitz:'Fitzpatrick I — Piel muy clara', tag:'Máxima eficacia', desc:'El Alejandrita es tu láser ideal. Alta absorción en melanina, sesiones ultrarrápidas y resultados visibles desde la primera sesión. Candidata perfecta.', wa:'Hola%2C+tengo+piel+muy+clara+(Fitzpatrick+I)+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
+    2: { laser:'Alejandrita 755nm', fitz:'Fitzpatrick II — Piel clara', tag:'Altamente eficaz', desc:'El Alejandrita trabaja a la perfección con tu tono. Precisión máxima, mínima molestia, resultados óptimos desde la primera sesión.', wa:'Hola%2C+tengo+piel+clara+(Fitzpatrick+II)+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
+    3: { laser:'Alejandrita 755nm', fitz:'Fitzpatrick III — Piel intermedia', tag:'Muy recomendado', desc:'Gran absorción en melanina y resultados óptimos. El Alejandrita ofrece la mayor eficacia en tu tipo de piel con seguridad total.', wa:'Hola%2C+tengo+piel+intermedia+(Fitzpatrick+III)+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
+    4: { laser:'Alejandrita o Neodimio', fitz:'Fitzpatrick IV — Piel morena', tag:'Valoración personalizada', desc:'Tu tono está en la zona donde ambas tecnologías pueden funcionar. En la consulta gratuita determinamos cuál es mejor para ti en particular.', wa:'Hola%2C+tengo+piel+morena+(Fitzpatrick+IV)+y+quiero+saber+qué+láser+me+corresponde' },
+    5: { laser:'Neodimio Nd:YAG 1064nm', fitz:'Fitzpatrick V — Piel morena oscura', tag:'Tu tecnología existe', desc:'El Neodimio penetra sin afectar la melanina superficial. Muchas clínicas te han dicho que no pueden tratarte. Nosotros sí — con total seguridad y eficacia demostrada.', wa:'Hola%2C+tengo+piel+oscura+(Fitzpatrick+V)+y+quiero+información+sobre+el+láser+Neodimio+Nd:YAG' },
+    6: { laser:'Neodimio Nd:YAG 1064nm', fitz:'Fitzpatrick VI — Piel muy oscura', tag:'Somos tu clínica', desc:'El Nd:YAG 1064nm es la única tecnología clínicamente segura para tu piel. Especialistas que te entienden y que tienen la solución. Tu piel no es un obstáculo — es nuestra especialidad.', wa:'Hola%2C+tengo+piel+muy+oscura+(Fitzpatrick+VI)+y+quiero+información+sobre+el+láser+Neodimio+Nd:YAG' }
+  };
+  const colors = { 1:'#F5D5A8', 2:'#E8B97A', 3:'#D4956A', 4:'#B87044', 5:'#8B4A2A', 6:'#5C2E15' };
+
+  document.querySelectorAll('.skin-circle').forEach(btn => {
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.skin-circle').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const f = parseInt(this.dataset.fitz);
+      const d = data[f];
+      document.getElementById('skinIdle').hidden = true;
+      const result = document.getElementById('skinResult');
+      result.hidden = false;
+      result.classList.remove('sr-animate');
+      void result.offsetWidth;
+      result.classList.add('sr-animate');
+      document.getElementById('srSwatch').style.background = colors[f];
+      document.getElementById('srTag').textContent = d.tag;
+      document.getElementById('srFitz').textContent = d.fitz;
+      document.getElementById('srLaser').textContent = d.laser;
+      document.getElementById('srDesc').textContent = d.desc;
+      document.getElementById('srCTA').href = 'https://wa.me/34624220321?text=' + d.wa;
+      // highlight matching laser type on image badge
+      const badge = document.querySelector('.tech-badge-float strong');
+      if(f >= 4) { badge.textContent = '✓ Apta para pieles oscuras'; }
+      else { badge.textContent = '✓ Para pieles claras y medias'; }
+    });
+  });
+})();
+</script>
 
 <!-- ── PROMOTIONS ── -->
 <section id="promociones">
