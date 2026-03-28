@@ -106,6 +106,16 @@
     .session-label { font-size: .78rem; color: var(--text-light); margin: 4px 0; }
     .session-save { font-size: .8rem; font-weight: 600; color: var(--gold); }
     @media (max-width:600px) { .zones-list { grid-template-columns: 1fr 1fr; } .sessions-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* FAQ overrides for light background context */
+    .article-body .faq-item, .faq-section .faq-item {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.1);
+    }
+    .article-body .faq-item:hover, .faq-section .faq-item:hover { border-color: rgba(154,105,15,.5); }
+    .article-body .faq-q, .faq-section .faq-q { color: var(--dark); }
+    .article-body .faq-q:hover, .faq-section .faq-q:hover { color: var(--gold-dark); }
+    .article-body .faq-a, .faq-section .faq-a { color: var(--text-mid); border-top-color: rgba(0,0,0,.08); }
   </style>
 </head>
 <body>

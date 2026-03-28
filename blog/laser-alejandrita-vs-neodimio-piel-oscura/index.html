@@ -99,6 +99,16 @@
     .meta-info { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--cream-dark); }
     .meta-item { display: flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--text-light); }
     @media (max-width:900px) { .article-layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+
+    /* FAQ overrides for light background context */
+    .article-body .faq-item, .faq-section .faq-item {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,.1);
+    }
+    .article-body .faq-item:hover, .faq-section .faq-item:hover { border-color: rgba(154,105,15,.5); }
+    .article-body .faq-q, .faq-section .faq-q { color: var(--dark); }
+    .article-body .faq-q:hover, .faq-section .faq-q:hover { color: var(--gold-dark); }
+    .article-body .faq-a, .faq-section .faq-a { color: var(--text-mid); border-top-color: rgba(0,0,0,.08); }
   </style>
 </head>
 <body>
