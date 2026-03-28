@@ -140,6 +140,31 @@
         "@type": "Question",
         "name": "¿Con qué frecuencia se hacen las sesiones de láser?",
         "acceptedAnswer": { "@type": "Answer", "text": "Generalmente cada 4-8 semanas según la zona del cuerpo y el ciclo de crecimiento del vello. Te diseñamos un calendario personalizado adaptado a tu agenda desde el primer día." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Se puede hacer depilación láser en verano?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí, aunque es importante evitar la exposición solar directa 2 semanas antes y después de cada sesión. En Eterna Clinic adaptamos el protocolo al verano para que puedas continuar el tratamiento todo el año." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Hay que afeitarse antes de la sesión de láser?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí, es necesario afeitar la zona 24-48 horas antes de la sesión. No se debe depilar con cera ni con pinzas al menos 4 semanas antes, ya que el láser actúa sobre la raíz del vello." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué zonas se pueden tratar con láser en Eterna Clinic?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tratamos más de 18 zonas: labio superior, entrecejo, axilas, ingles brasileñas, zona íntima completa, piernas completas, medias piernas, brazos, espalda, pecho, abdomen, glúteos, pies, dedos y más. Consulta zonas específicas en nuestra clínica de Alcobendas." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tiempo dura cada sesión de depilación láser?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Depende de la zona: el labio superior se trata en 5-10 minutos, las axilas en 15 minutos, las piernas completas en 45-60 minutos. En general, las sesiones son rápidas gracias a nuestra tecnología de alta frecuencia." }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Eterna Clinic está cerca de La Moraleja?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí, estamos a solo 5 minutos de La Moraleja y El Soto de la Moraleja, y a 10 minutos de San Sebastián de los Reyes. En Avenida de Europa, 13, Alcobendas, con fácil acceso y aparcamiento." }
       }
     ]
   }
@@ -160,6 +185,8 @@
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://eternaclinic.es">
+  <link rel="preload" href="/styles.css" as="style">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
@@ -209,11 +236,14 @@
 <!-- ── HERO ── -->
 <section id="hero">
   <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
   <div class="container">
     <div class="hero-content">
       <div class="hero-badge">✦ Tecnología Alejandrita &amp; Neodimio Nd:YAG</div>
       <h1 class="hero-title">
-        Tu piel, perfecta.<br><em>Sin límites.</em>
+        Tu piel, perfecta.<br><em class="hero-title-gold">Sin límites.</em>
       </h1>
       <p class="hero-subtitle">
         Depilación láser avanzada y tratamientos estéticos en Alcobendas. Tecnología de última generación para <strong style="color:#fff">todo tipo de pieles</strong>, incluyendo pieles oscuras.
@@ -237,19 +267,19 @@
   <div class="container">
     <div class="stats-inner">
       <div class="stat-item">
-        <span class="stat-number">+300</span>
+        <span class="stat-number" data-target="300" data-prefix="+">0</span>
         <span class="stat-label">Clientes activos</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">2</span>
+        <span class="stat-number" data-target="2">0</span>
         <span class="stat-label">Tecnologías láser</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">40%</span>
+        <span class="stat-number" data-target="40" data-suffix="%">0</span>
         <span class="stat-label">Ahorro en packs</span>
       </div>
       <div class="stat-item">
-        <span class="stat-number">100%</span>
+        <span class="stat-number" data-target="100" data-suffix="%">0</span>
         <span class="stat-label">Pieles tratables</span>
       </div>
     </div>
@@ -261,14 +291,14 @@
   <div class="promo-scroll" id="promoScroll">
     <span class="promo-item">HASTA 40% DE DESCUENTO EN PACKS <span class="promo-dot"></span></span>
     <span class="promo-item">DEPILACIÓN LÁSER ALEJANDRITA — LA MÁS EFECTIVA <span class="promo-dot"></span></span>
-    <span class="promo-item">💛 NEODIMIO Nd:YAG — SEGURA EN PIELES OSCURAS <span class="promo-dot"></span></span>
+    <span class="promo-item">NEODIMIO Nd:YAG — SEGURA EN PIELES OSCURAS <span class="promo-dot"></span></span>
     <span class="promo-item">4.9★ EN GOOGLE REVIEWS <span class="promo-dot"></span></span>
     <span class="promo-item">ALCOBENDAS · AVDA. DE EUROPA, 13 <span class="promo-dot"></span></span>
     <span class="promo-item">91 951 11 01 · WhatsApp 624 220 321 <span class="promo-dot"></span></span>
     <!-- Duplicated for seamless loop -->
     <span class="promo-item">HASTA 40% DE DESCUENTO EN PACKS <span class="promo-dot"></span></span>
     <span class="promo-item">DEPILACIÓN LÁSER ALEJANDRITA — LA MÁS EFECTIVA <span class="promo-dot"></span></span>
-    <span class="promo-item">💛 NEODIMIO Nd:YAG — SEGURA EN PIELES OSCURAS <span class="promo-dot"></span></span>
+    <span class="promo-item">NEODIMIO Nd:YAG — SEGURA EN PIELES OSCURAS <span class="promo-dot"></span></span>
     <span class="promo-item">4.9★ EN GOOGLE REVIEWS <span class="promo-dot"></span></span>
     <span class="promo-item">ALCOBENDAS · AVDA. DE EUROPA, 13 <span class="promo-dot"></span></span>
     <span class="promo-item">91 951 11 01 · WhatsApp 624 220 321 <span class="promo-dot"></span></span>
@@ -443,6 +473,57 @@
 </section>
 
 <!-- ── TECH SPOTLIGHT ── -->
+<!-- ── PROCESO ── -->
+<section id="proceso" class="proceso-section">
+  <div class="container">
+    <div class="proceso-header reveal">
+      <span class="section-tag">Sin complicaciones</span>
+      <h2 class="section-title">Tu camino hacia<br><em style="font-style:normal;color:var(--gold)">resultados reales</em></h2>
+      <p class="section-subtitle">Cuatro pasos simples. Sin esperas. Sin sorpresas.</p>
+    </div>
+    <div class="proceso-grid reveal">
+      <div class="proceso-step">
+        <div class="paso-num">01</div>
+        <div class="paso-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Consulta gratuita</h3>
+        <p>Analizamos tu tipo de piel, el área a tratar y resolvemos todas tus dudas sin compromiso.</p>
+      </div>
+      <div class="proceso-connector"></div>
+      <div class="proceso-step">
+        <div class="paso-num">02</div>
+        <div class="paso-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3>Diagnóstico de piel</h3>
+        <p>Determinamos tu fototipo Fitzpatrick y elegimos la tecnología óptima: Alejandrita o Neodimio.</p>
+      </div>
+      <div class="proceso-connector"></div>
+      <div class="proceso-step">
+        <div class="paso-num">03</div>
+        <div class="paso-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Tratamiento láser</h3>
+        <p>Sesiones rápidas, cómodas y eficaces. Resultados visibles desde la primera aplicación.</p>
+      </div>
+      <div class="proceso-connector"></div>
+      <div class="proceso-step">
+        <div class="paso-num">04</div>
+        <div class="paso-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Resultados permanentes</h3>
+        <p>Reducción permanente del vello. Seguimiento personalizado en cada fase del tratamiento.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px" class="reveal">
+      <a href="https://wa.me/34624220321?text=Hola%2C+quiero+reservar+mi+consulta+gratuita+en+Eterna+Clinic" class="btn btn-primary" style="font-size:1.05rem;padding:16px 36px">Reservar consulta gratuita →</a>
+    </div>
+  </div>
+</section>
+
 <section id="tecnologia">
   <div class="container">
     <div class="skin-sel-header reveal">
@@ -1007,6 +1088,14 @@
         </ul>
       </div>
       <div class="footer-col">
+        <h4>Recursos</h4>
+        <ul class="footer-links">
+          <li><a href="/depilacion-laser-alejandrita/">Láser Alejandrita</a></li>
+          <li><a href="/depilacion-laser-moraleja/">Depilación en Moraleja</a></li>
+          <li><a href="/blog/laser-alejandrita-vs-neodimio-piel-oscura/">Alejandrita vs Neodimio</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
         <h4>Horario</h4>
         <div class="footer-hours">
           <div class="footer-hour"><span>Lunes</span><span>10:00–21:00</span></div>
@@ -1089,6 +1178,30 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── Counter animation ──
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = prefix + Math.floor(current) + suffix;
+      if (current >= target) clearInterval(timer);
+    }, 16);
+  }
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObserver.observe(el));
 
   // ── Smooth anchor scroll offset for fixed header ──
   document.querySelectorAll('a[href^="#"]').forEach(a => {
