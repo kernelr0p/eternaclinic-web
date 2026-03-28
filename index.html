@@ -541,10 +541,9 @@
         </div>
       </div>
       <div class="tech-content reveal">
-        <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,247,240,.4);margin-bottom:16px">Toca el tono que más se parece al tuyo:</p>
 
         <!-- Skin palette: fully self-contained, zero external CSS dependency -->
-        <div id="skinPalette" style="display:flex;gap:8px;margin-bottom:24px;">
+        <div id="skinPalette" style="display:flex;gap:8px;margin-bottom:12px;">
           <div onclick="skinPick(1)" tabindex="0" onkeydown="if(event.key==='Enter')skinPick(1)" id="sc1" role="button" aria-label="Piel muy clara"   style="flex:1;height:88px;background:#F2DFC8;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden;"></div>
           <div onclick="skinPick(2)" tabindex="0" onkeydown="if(event.key==='Enter')skinPick(2)" id="sc2" role="button" aria-label="Piel clara"       style="flex:1;height:88px;background:#E3B98A;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden;"></div>
           <div onclick="skinPick(3)" tabindex="0" onkeydown="if(event.key==='Enter')skinPick(3)" id="sc3" role="button" aria-label="Piel intermedia" style="flex:1;height:88px;background:#C9855A;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden;"></div>
@@ -552,9 +551,10 @@
           <div onclick="skinPick(5)" tabindex="0" onkeydown="if(event.key==='Enter')skinPick(5)" id="sc5" role="button" aria-label="Piel oscura"      style="flex:1;height:88px;background:#6B3318;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden;"></div>
           <div onclick="skinPick(6)" tabindex="0" onkeydown="if(event.key==='Enter')skinPick(6)" id="sc6" role="button" aria-label="Piel muy oscura"  style="flex:1;height:88px;background:#35160A;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden;"></div>
         </div>
+        <p style="font-size:.82rem;color:rgba(255,247,240,.55);margin-bottom:24px;text-align:center">Selecciona el tono de piel que más se parece al tuyo</p>
 
-        <div id="skinResult" style="min-height:240px;transition:opacity .18s ease;opacity:1;">
-          <p style="color:rgba(255,247,240,.22);font-size:.85rem;font-style:italic;padding-top:48px;text-align:center">Selecciona tu tono para ver tu láser recomendado</p>
+        <div id="skinResult" style="min-height:220px;transition:opacity .18s ease;opacity:1;color:rgba(255,247,240,.85);">
+          <p style="color:rgba(255,247,240,.22);font-size:.85rem;font-style:italic;padding-top:40px;text-align:center">Tu láser recomendado aparecerá aquí</p>
         </div>
       </div>
     </div>
@@ -598,22 +598,17 @@ function skinPick(n) {
   result.style.opacity = '0';
   setTimeout(function() {
     result.innerHTML =
-      '<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">'
-        +'<div style="width:20px;height:20px;border-radius:50%;background:'+c+';box-shadow:0 0 14px '+c+'88;flex-shrink:0"></div>'
-        +'<div>'
-          +'<div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#C4920D;margin-bottom:2px">'+d.tag+'</div>'
-        +'</div>'
+      '<div class="sp-header">'
+        +'<div class="sp-dot" style="background:'+c+';box-shadow:0 0 16px '+c+'88"></div>'
+        +'<div><div class="sp-tag">'+d.tag+'</div></div>'
       +'</div>'
-      +'<div style="font-size:1.4rem;font-weight:700;color:#E8C97A;margin-bottom:16px;letter-spacing:-.01em">'+d.laser+'</div>'
-      +'<ul style="list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:8px">'
-        +d.facts.map(function(f){ return '<li style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:rgba(255,247,240,.75)">'
-          +'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C4920D" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>'
-          +f+'</li>'; }).join('')
+      +'<div class="sp-laser">'+d.laser+'</div>'
+      +'<ul class="sp-facts">'
+        +d.facts.map(function(f){ return '<li>'+f+'</li>'; }).join('')
       +'</ul>'
-      +'<p style="font-size:.88rem;color:rgba(255,247,240,.6);line-height:1.6;margin-bottom:20px">'+d.desc+'</p>'
-      +'<a href="https://wa.me/34624220321?text='+d.wa+'" style="display:inline-block;background:#9A690F;color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-size:.9rem;font-weight:600;transition:background .2s" onmouseover="this.style.background=\'#C4920D\'" onmouseout="this.style.background=\'#9A690F\'">Reservar consulta gratuita →</a>';
+      +'<p class="sp-desc">'+d.desc+'</p>'
+      +'<a href="https://wa.me/34624220321?text='+d.wa+'" class="btn btn-primary sp-cta">Reservar consulta gratuita →</a>';
     result.style.opacity = '1';
-    // Update badge
     var badge = document.querySelector('.tech-badge-float strong');
     if (badge) badge.textContent = n >= 4 ? '✓ Apta para pieles oscuras' : '✓ Para pieles claras y medias';
   }, 150);
