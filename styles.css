@@ -528,13 +528,13 @@
     }
     .sp-header { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
     .sp-dot { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; border: 2px solid var(--gold); }
-    .sp-tag { font-size: .65rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--gold); margin-bottom: 3px; }
+    .sp-tag { font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; color: var(--gold); margin-bottom: 3px; }
     .sp-label { font-size: .82rem; color: rgba(255,247,240,.45); }
-    .sp-laser { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.2; }
-    .sp-facts { list-style: none; margin: 0 0 12px; display: flex; flex-direction: column; gap: 4px; }
-    .sp-facts li { font-size: .8rem; color: rgba(255,247,240,.5); padding-left: 16px; position: relative; }
+    .sp-laser { font-size: 1.5rem; font-weight: 700; color: var(--white); margin-bottom: 12px; line-height: 1.2; }
+    .sp-facts { list-style: none; margin: 0 0 14px; display: flex; flex-direction: column; gap: 6px; }
+    .sp-facts li { font-size: .95rem; color: rgba(255,247,240,.8); padding-left: 18px; position: relative; }
     .sp-facts li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
-    .sp-desc { font-size: .84rem; color: rgba(255,247,240,.6); line-height: 1.6; margin-bottom: 20px; }
+    .sp-desc { font-size: .97rem; color: rgba(255,247,240,.75); line-height: 1.65; margin-bottom: 22px; }
     .sp-cta { display: block; text-align: center; }
 
     /* keep for other sections */
