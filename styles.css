@@ -920,6 +920,53 @@
       50% { box-shadow: 0 4px 36px rgba(37,211,102,.65); }
     }
 
+    /* ── INSTAGRAM FAB ── */
+    .instagram-fab {
+      position: fixed;
+      bottom: 98px;
+      right: 28px;
+      z-index: 900;
+      background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      color: #fff;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(214,36,159,.4);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .instagram-fab:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(214,36,159,.6); }
+
+    /* ── INSTAGRAM icon in nav ── */
+    .nav-instagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,247,240,.08);
+      color: rgba(255,247,240,.7);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .nav-instagram:hover {
+      background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      color: #fff;
+      transform: scale(1.08);
+    }
+    #header.scrolled .nav-instagram {
+      background: rgba(26,14,0,.07);
+      color: var(--dark);
+    }
+    #header.scrolled .nav-instagram:hover {
+      background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      color: #fff;
+    }
+
     /* ── SCROLL ANIMATIONS ── */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
