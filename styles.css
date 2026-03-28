@@ -99,11 +99,15 @@
       transition: var(--transition);
     }
     #header.scrolled {
-      background: rgba(255,247,240,.96);
+      background: rgba(255,247,240,.97);
       backdrop-filter: blur(12px);
       padding: 10px 0;
       box-shadow: 0 2px 20px rgba(26,14,0,.08);
     }
+    #header.scrolled .logo-text { color: var(--dark); }
+    #header.scrolled nav a { color: var(--dark); }
+    #header.scrolled .header-phone { color: var(--text-mid); }
+    #header.scrolled .hamburger span { background: var(--dark); }
     .header-inner {
       display: flex;
       align-items: center;
@@ -117,13 +121,13 @@
       text-decoration: none;
     }
     .logo img { height: 44px; width: 44px; border-radius: 50%; object-fit: cover; }
-    .logo-text { font-size: 1.25rem; font-weight: 700; color: var(--dark); letter-spacing: -.01em; }
+    .logo-text { font-size: 1.25rem; font-weight: 700; color: var(--white); letter-spacing: -.01em; }
     .logo-text span { color: var(--gold); }
     nav { display: flex; align-items: center; gap: 8px; }
     nav a {
       font-size: .9rem;
       font-weight: 500;
-      color: var(--dark);
+      color: rgba(255,247,240,.85);
       text-decoration: none;
       padding: 8px 14px;
       border-radius: 99px;
@@ -134,12 +138,12 @@
     .header-phone {
       font-size: .85rem;
       font-weight: 500;
-      color: var(--text-mid);
+      color: rgba(255,247,240,.7);
       text-decoration: none;
     }
     .header-phone:hover { color: var(--gold); }
     .hamburger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; transition: var(--transition); }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
     .mobile-menu {
       display: none;
       position: fixed;
