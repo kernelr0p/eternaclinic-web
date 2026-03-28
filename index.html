@@ -541,22 +541,20 @@
         </div>
       </div>
       <div class="tech-content reveal">
-        <p class="skin-sel-label">Toca el tono que más se parece al tuyo:</p>
+        <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,247,240,.4);margin-bottom:16px">Toca el tono que más se parece al tuyo:</p>
 
-        <div class="skin-palette" role="group" aria-label="Selecciona tu tono de piel">
-          <button class="skin-chip" data-fitz="1" style="background:#F2DFC8" aria-label="Piel muy clara"></button>
-          <button class="skin-chip" data-fitz="2" style="background:#E3B98A" aria-label="Piel clara"></button>
-          <button class="skin-chip" data-fitz="3" style="background:#C9855A" aria-label="Piel intermedia"></button>
-          <button class="skin-chip" data-fitz="4" style="background:#A0622E" aria-label="Piel morena"></button>
-          <button class="skin-chip" data-fitz="5" style="background:#6B3318" aria-label="Piel oscura"></button>
-          <button class="skin-chip" data-fitz="6" style="background:#35160A" aria-label="Piel muy oscura"></button>
+        <!-- Skin palette: fully self-contained, zero external CSS dependency -->
+        <div id="skinPalette" style="display:flex;gap:8px;margin-bottom:24px;">
+          <div onclick="skinPick(1)" tabindex="0" onkeydown="if(event.key==='Enter')skinPick(1)" id="sc1" role="button" aria-label="Piel muy clara"   style="flex:1;height:88px;background:#F2DFC8;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden;"></div>
+          <div onclick="skinPick(2)" tabindex="0" onkeydown="if(event.key==='Enter')skinPick(2)" id="sc2" role="button" aria-label="Piel clara"       style="flex:1;height:88px;background:#E3B98A;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden;"></div>
+          <div onclick="skinPick(3)" tabindex="0" onkeydown="if(event.key==='Enter')skinPick(3)" id="sc3" role="button" aria-label="Piel intermedia" style="flex:1;height:88px;background:#C9855A;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden;"></div>
+          <div onclick="skinPick(4)" tabindex="0" onkeydown="if(event.key==='Enter')skinPick(4)" id="sc4" role="button" aria-label="Piel morena"     style="flex:1;height:88px;background:#A0622E;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden;"></div>
+          <div onclick="skinPick(5)" tabindex="0" onkeydown="if(event.key==='Enter')skinPick(5)" id="sc5" role="button" aria-label="Piel oscura"      style="flex:1;height:88px;background:#6B3318;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden;"></div>
+          <div onclick="skinPick(6)" tabindex="0" onkeydown="if(event.key==='Enter')skinPick(6)" id="sc6" role="button" aria-label="Piel muy oscura"  style="flex:1;height:88px;background:#35160A;border-radius:12px;cursor:pointer;border:2px solid rgba(255,255,255,.08);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden;"></div>
         </div>
 
-        <!-- Panel: always in DOM, content swaps with fade, no layout shift -->
-        <div class="skin-panel" id="skinPanel">
-          <div class="skin-panel-inner" id="skinPanelInner">
-            <p class="skin-panel-placeholder">Selecciona tu tono para ver tu láser recomendado</p>
-          </div>
+        <div id="skinResult" style="min-height:240px;transition:opacity .18s ease;opacity:1;">
+          <p style="color:rgba(255,247,240,.22);font-size:.85rem;font-style:italic;padding-top:48px;text-align:center">Selecciona tu tono para ver tu láser recomendado</p>
         </div>
       </div>
     </div>
@@ -564,55 +562,62 @@
 </section>
 
 <script>
-(function(){
-  const data = {
-    1: { laser:'Alejandrita 755nm', label:'Piel muy clara', tag:'Máxima eficacia', facts:['Absorción máxima en melanina','Sesiones ultrarrápidas','Resultado desde la 1ª sesión'], desc:'El Alejandrita es tu láser por excelencia. Alta precisión, mínima molestia y resultados visibles desde la primera sesión.', wa:'Hola%2C+tengo+piel+muy+clara+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
-    2: { laser:'Alejandrita 755nm', label:'Piel clara', tag:'Altamente eficaz', facts:['Alta eficacia comprobada','Mínima molestia','Sesiones precisas y rápidas'], desc:'El Alejandrita trabaja a la perfección con tu tono. Precisión máxima, resultados óptimos desde la primera sesión.', wa:'Hola%2C+tengo+piel+clara+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
-    3: { laser:'Alejandrita 755nm', label:'Piel intermedia', tag:'Muy recomendado', facts:['Eficacia probada en piel media','Protocolo personalizado','Comodidad durante el tratamiento'], desc:'Gran absorción en melanina. El Alejandrita ofrece la mayor eficacia en tu tipo de piel con total seguridad.', wa:'Hola%2C+tengo+piel+intermedia+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
-    4: { laser:'Alejandrita o Neodimio', label:'Piel morena', tag:'Diagnóstico personalizado', facts:['Evaluación gratuita incluida','Protocolo adaptado a tu tono','Ambas tecnologías disponibles'], desc:'Tu tono está en la zona frontera. En la consulta gratuita evaluamos cuál de las dos tecnologías da mejores resultados para tu caso.', wa:'Hola%2C+tengo+piel+morena+y+quiero+saber+qué+láser+me+corresponde' },
-    5: { laser:'Neodimio Nd:YAG 1064nm', label:'Piel oscura', tag:'Tu solución existe', facts:['Penetración profunda sin dañar melanina','Seguro en pieles oscuras','Donde otros láseres fallan'], desc:'El Neodimio penetra sin afectar la melanina superficial. Muchas clínicas no pueden tratarte — nosotros sí, con total seguridad y eficacia demostrada.', wa:'Hola%2C+tengo+piel+oscura+y+quiero+información+sobre+el+láser+Neodimio+Nd:YAG' },
-    6: { laser:'Neodimio Nd:YAG 1064nm', label:'Piel muy oscura', tag:'Somos tu clínica', facts:['La única tecnología 100% segura','Especialistas en piel oscura','Tu piel no es un obstáculo'], desc:'El Nd:YAG 1064nm es la única tecnología clínicamente validada para piel muy oscura. Tu piel es nuestra especialidad.', wa:'Hola%2C+tengo+piel+muy+oscura+y+quiero+información+sobre+el+láser+Neodimio+Nd:YAG' }
-  };
-  const colors = { 1:'#F2DFC8', 2:'#E3B98A', 3:'#C9855A', 4:'#A0622E', 5:'#6B3318', 6:'#35160A' };
+var _skinData = {
+  1:{laser:'Alejandrita 755nm',tag:'Máxima eficacia',facts:['Absorción máxima en melanina','Sesiones ultrarrápidas','Resultado desde la 1ª sesión'],desc:'El Alejandrita es tu láser por excelencia. Alta precisión, mínima molestia y resultados visibles desde la primera sesión.',wa:'Hola%2C+tengo+piel+muy+clara+y+quiero+información+sobre+la+depilación+láser+Alejandrita'},
+  2:{laser:'Alejandrita 755nm',tag:'Altamente eficaz',facts:['Alta eficacia comprobada','Mínima molestia','Sesiones precisas y rápidas'],desc:'El Alejandrita trabaja a la perfección con tu tono. Precisión máxima, resultados óptimos desde la primera sesión.',wa:'Hola%2C+tengo+piel+clara+y+quiero+información+sobre+la+depilación+láser+Alejandrita'},
+  3:{laser:'Alejandrita 755nm',tag:'Muy recomendado',facts:['Eficacia probada en piel media','Protocolo personalizado','Comodidad durante el tratamiento'],desc:'Gran absorción en melanina. El Alejandrita ofrece la mayor eficacia en tu tipo de piel con total seguridad.',wa:'Hola%2C+tengo+piel+intermedia+y+quiero+información+sobre+la+depilación+láser+Alejandrita'},
+  4:{laser:'Alejandrita o Neodimio',tag:'Diagnóstico personalizado',facts:['Evaluación gratuita incluida','Protocolo adaptado a tu tono','Ambas tecnologías disponibles'],desc:'Tu tono está en la zona frontera. En la consulta gratuita evaluamos cuál de las dos tecnologías da mejores resultados para tu caso.',wa:'Hola%2C+tengo+piel+morena+y+quiero+saber+qué+láser+me+corresponde'},
+  5:{laser:'Neodimio Nd:YAG 1064nm',tag:'Tu solución existe',facts:['Penetración profunda sin dañar melanina','Seguro en pieles oscuras','Donde otros láseres fallan'],desc:'El Neodimio penetra sin afectar la melanina superficial. Muchas clínicas no pueden tratarte — nosotros sí, con total seguridad y eficacia demostrada.',wa:'Hola%2C+tengo+piel+oscura+y+quiero+información+sobre+el+láser+Neodimio+Nd:YAG'},
+  6:{laser:'Neodimio Nd:YAG 1064nm',tag:'Somos tu clínica',facts:['La única tecnología 100% segura','Especialistas en piel oscura','Tu piel no es un obstáculo'],desc:'El Nd:YAG 1064nm es la única tecnología clínicamente validada para piel muy oscura. Tu piel es nuestra especialidad.',wa:'Hola%2C+tengo+piel+muy+oscura+y+quiero+información+sobre+el+láser+Neodimio+Nd:YAG'}
+};
+var _skinColors = {1:'#F2DFC8',2:'#E3B98A',3:'#C9855A',4:'#A0622E',5:'#6B3318',6:'#35160A'};
 
-  document.querySelectorAll('.skin-chip').forEach(btn => {
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('.skin-chip').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      const f = parseInt(this.dataset.fitz);
-      const d = data[f];
-      const c = colors[f];
-      const panel = document.getElementById('skinPanelInner');
-      const isDark = f >= 4;
-
-      // Fade out → update content → fade in
-      panel.style.opacity = '0';
-      panel.style.transform = 'translateY(10px)';
-      setTimeout(() => {
-        panel.innerHTML = `
-          <div class="sp-header">
-            <div class="sp-dot" style="background:${c};box-shadow:0 0 16px ${c}55"></div>
-            <div>
-              <div class="sp-tag">${d.tag}</div>
-              <div class="sp-label">${d.label}</div>
-            </div>
-          </div>
-          <div class="sp-laser">${d.laser}</div>
-          <ul class="sp-facts">
-            ${d.facts.map(f=>`<li>${f}</li>`).join('')}
-          </ul>
-          <p class="sp-desc">${d.desc}</p>
-          <a href="https://wa.me/34624220321?text=${d.wa}" class="btn btn-primary sp-cta">Reservar consulta gratuita →</a>
-        `;
-        panel.style.opacity = '1';
-        panel.style.transform = 'none';
-        // Update image badge
-        const badge = document.querySelector('.tech-badge-float strong');
-        badge.textContent = isDark ? '✓ Apta para pieles oscuras' : '✓ Para pieles claras y medias';
-      }, 180);
-    });
-  });
-})();
+function skinPick(n) {
+  // Reset all chips
+  for (var i = 1; i <= 6; i++) {
+    var el = document.getElementById('sc'+i);
+    if (!el) continue;
+    el.style.transform = '';
+    el.style.boxShadow = '';
+    el.style.borderColor = 'rgba(255,255,255,.08)';
+    el.innerHTML = '';
+  }
+  // Highlight selected chip
+  var chip = document.getElementById('sc'+n);
+  if (chip) {
+    chip.style.transform = 'translateY(-5px)';
+    chip.style.borderColor = '#C4920D';
+    chip.style.boxShadow = '0 10px 28px rgba(154,105,15,.4), 0 0 0 3px rgba(154,105,15,.2)';
+    var checkColor = n <= 2 ? 'rgba(0,0,0,.5)' : 'rgba(255,255,255,.9)';
+    chip.innerHTML = '<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;color:'+checkColor+';text-shadow:0 1px 4px rgba(0,0,0,.3)">✓</span>';
+  }
+  // Render result
+  var d = _skinData[n];
+  var c = _skinColors[n];
+  var result = document.getElementById('skinResult');
+  result.style.opacity = '0';
+  setTimeout(function() {
+    result.innerHTML =
+      '<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">'
+        +'<div style="width:20px;height:20px;border-radius:50%;background:'+c+';box-shadow:0 0 14px '+c+'88;flex-shrink:0"></div>'
+        +'<div>'
+          +'<div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#C4920D;margin-bottom:2px">'+d.tag+'</div>'
+        +'</div>'
+      +'</div>'
+      +'<div style="font-size:1.4rem;font-weight:700;color:#E8C97A;margin-bottom:16px;letter-spacing:-.01em">'+d.laser+'</div>'
+      +'<ul style="list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:8px">'
+        +d.facts.map(function(f){ return '<li style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:rgba(255,247,240,.75)">'
+          +'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C4920D" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>'
+          +f+'</li>'; }).join('')
+      +'</ul>'
+      +'<p style="font-size:.88rem;color:rgba(255,247,240,.6);line-height:1.6;margin-bottom:20px">'+d.desc+'</p>'
+      +'<a href="https://wa.me/34624220321?text='+d.wa+'" style="display:inline-block;background:#9A690F;color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-size:.9rem;font-weight:600;transition:background .2s" onmouseover="this.style.background=\'#C4920D\'" onmouseout="this.style.background=\'#9A690F\'">Reservar consulta gratuita →</a>';
+    result.style.opacity = '1';
+    // Update badge
+    var badge = document.querySelector('.tech-badge-float strong');
+    if (badge) badge.textContent = n >= 4 ? '✓ Apta para pieles oscuras' : '✓ Para pieles claras y medias';
+  }, 150);
+}
 </script>
 
 <!-- ── PROMOTIONS ── -->
