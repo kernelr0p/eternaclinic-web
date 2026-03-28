@@ -473,23 +473,17 @@
     }
     .skin-chip {
       flex: 1;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
-    .chip-color {
-      display: block;
-      width: 100%;
       height: 88px;
       border-radius: 12px;
       background: var(--sc);
       border: 2px solid rgba(255,255,255,.05);
-      transition: transform .2s, box-shadow .2s, border-color .2s;
+      cursor: pointer;
+      padding: 0;
       position: relative;
       overflow: hidden;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
     }
-    .skin-chip.active .chip-color::after {
+    .skin-chip.active::after {
       content: '✓';
       position: absolute;
       inset: 0;
@@ -501,22 +495,21 @@
       color: rgba(255,255,255,.9);
       text-shadow: 0 1px 6px rgba(0,0,0,.5);
     }
-    .skin-chip[data-fitz="1"].active .chip-color::after,
-    .skin-chip[data-fitz="2"].active .chip-color::after {
+    .skin-chip[data-fitz="1"].active::after,
+    .skin-chip[data-fitz="2"].active::after {
       color: rgba(0,0,0,.45);
       text-shadow: none;
     }
-    .skin-chip:hover .chip-color {
+    .skin-chip:hover {
       transform: translateY(-4px);
       border-color: rgba(154,105,15,.4);
       box-shadow: 0 8px 24px rgba(0,0,0,.35);
     }
-    .skin-chip.active .chip-color {
+    .skin-chip.active {
       transform: translateY(-5px);
       border-color: var(--gold);
       box-shadow: 0 10px 28px rgba(154,105,15,.35), 0 0 0 3px rgba(154,105,15,.18);
     }
-    /* chip-name removed — color speaks for itself */
 
     /* ── Result panel: fixed layout, no shift ── */
     .skin-panel {
@@ -912,7 +905,7 @@
       .tech-grid { grid-template-columns: 1fr; }
       .tech-image-wrap img { height: 320px; }
       .skin-palette { gap: 4px; }
-      .chip-color { height: 64px; border-radius: 8px; }
+      .skin-chip { height: 64px; border-radius: 8px; }
       .why-grid { grid-template-columns: 1fr; }
       .why-images { display: none; }
       .reviews-grid { grid-template-columns: 1fr 1fr; }
@@ -1054,10 +1047,12 @@
     .proceso-step h3 {
       font-size: 1rem; font-weight: 600;
       color: var(--dark); margin-bottom: 8px;
+      text-align: center;
     }
     .proceso-step p {
       font-size: .84rem; color: var(--text-light);
       line-height: 1.55;
+      text-align: center;
     }
     .proceso-connector {
       width: 48px;
