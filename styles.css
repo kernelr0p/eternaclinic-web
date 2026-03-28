@@ -171,7 +171,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://eternaclinic.es/wp-content/uploads/2025/05/laser-hair-removal-in-the-beauty-salon-woman-having-professional-laser-epilation-procedure-of-arm-19239092.jpeg');
+      background-image: url('/images/hero-laser-orig.jpeg');
       background-size: cover;
       background-position: center 30%;
       transform: scale(1.05);
