@@ -541,56 +541,40 @@
         </div>
       </div>
       <div class="tech-content reveal">
-        <p class="skin-sel-label">Escala Fitzpatrick — selecciona tu tono:</p>
-        <div class="skin-circles" role="group" aria-label="Tonos de piel Fitzpatrick">
-          <button class="skin-circle" data-fitz="1" style="--sc:#F5D5A8" aria-label="Fitzpatrick I, piel muy clara"><span class="sc-num">I</span></button>
-          <button class="skin-circle" data-fitz="2" style="--sc:#E8B97A" aria-label="Fitzpatrick II, piel clara"><span class="sc-num">II</span></button>
-          <button class="skin-circle" data-fitz="3" style="--sc:#D4956A" aria-label="Fitzpatrick III, piel intermedia"><span class="sc-num">III</span></button>
-          <button class="skin-circle" data-fitz="4" style="--sc:#B87044" aria-label="Fitzpatrick IV, piel morena"><span class="sc-num">IV</span></button>
-          <button class="skin-circle" data-fitz="5" style="--sc:#8B4A2A" aria-label="Fitzpatrick V, piel morena oscura"><span class="sc-num">V</span></button>
-          <button class="skin-circle" data-fitz="6" style="--sc:#5C2E15" aria-label="Fitzpatrick VI, piel muy oscura"><span class="sc-num">VI</span></button>
+        <p class="skin-sel-label">Toca el tono que más se parece al tuyo:</p>
+
+        <div class="skin-palette" role="group" aria-label="Selecciona tu tono de piel">
+          <button class="skin-chip" data-fitz="1" style="--sc:#F2DFC8" aria-label="Piel muy clara">
+            <span class="chip-color"></span>
+            <span class="chip-name">Muy clara</span>
+          </button>
+          <button class="skin-chip" data-fitz="2" style="--sc:#E3B98A" aria-label="Piel clara">
+            <span class="chip-color"></span>
+            <span class="chip-name">Clara</span>
+          </button>
+          <button class="skin-chip" data-fitz="3" style="--sc:#C9855A" aria-label="Piel intermedia">
+            <span class="chip-color"></span>
+            <span class="chip-name">Intermedia</span>
+          </button>
+          <button class="skin-chip" data-fitz="4" style="--sc:#A0622E" aria-label="Piel morena">
+            <span class="chip-color"></span>
+            <span class="chip-name">Morena</span>
+          </button>
+          <button class="skin-chip" data-fitz="5" style="--sc:#6B3318" aria-label="Piel oscura">
+            <span class="chip-color"></span>
+            <span class="chip-name">Oscura</span>
+          </button>
+          <button class="skin-chip" data-fitz="6" style="--sc:#35160A" aria-label="Piel muy oscura">
+            <span class="chip-color"></span>
+            <span class="chip-name">Muy oscura</span>
+          </button>
         </div>
 
-        <!-- idle state -->
-        <div id="skinIdle" class="skin-idle">
-          <div class="tech-feature">
-            <div>
-              <h4>Láser Alejandrita — 755nm</h4>
-              <p>Estándar de oro para pieles claras y oliváceas (Fitzpatrick I–IV). Máxima eficacia por sesión.</p>
-              <div class="skin-badges" style="margin-top:10px">
-                <div class="skin-badge" style="background:#F5D5A8"></div>
-                <div class="skin-badge" style="background:#E8B97A"></div>
-                <div class="skin-badge" style="background:#D4956A"></div>
-                <div class="skin-badge" style="background:#B87044"></div>
-              </div>
-            </div>
+        <!-- Panel: always in DOM, content swaps with fade, no layout shift -->
+        <div class="skin-panel" id="skinPanel">
+          <div class="skin-panel-inner" id="skinPanelInner">
+            <p class="skin-panel-placeholder">Selecciona tu tono para ver tu láser recomendado</p>
           </div>
-          <div class="tech-feature">
-            <div>
-              <h4>Láser Neodimio Nd:YAG — 1064nm</h4>
-              <p>La única tecnología segura en pieles morenas y oscuras (Fitzpatrick IV–VI). Donde otros fallan, nosotros llegamos.</p>
-              <div class="skin-badges" style="margin-top:10px">
-                <div class="skin-badge" style="background:#B87044"></div>
-                <div class="skin-badge" style="background:#8B4A2A"></div>
-                <div class="skin-badge" style="background:#5C2E15"></div>
-              </div>
-            </div>
-          </div>
-          <p class="skin-idle-hint">← Pulsa un tono para ver tu recomendación personalizada</p>
-        </div>
-
-        <!-- result card (hidden until selection) -->
-        <div id="skinResult" class="skin-result" hidden>
-          <div class="sr-top">
-            <div class="sr-swatch" id="srSwatch"></div>
-            <div>
-              <div class="sr-tag" id="srTag"></div>
-              <div class="sr-fitz" id="srFitz"></div>
-            </div>
-          </div>
-          <div class="sr-laser" id="srLaser"></div>
-          <p class="sr-desc" id="srDesc"></p>
-          <a href="#" class="btn btn-primary" id="srCTA" style="display:block;text-align:center">Reservar consulta gratuita →</a>
         </div>
       </div>
     </div>
@@ -600,37 +584,50 @@
 <script>
 (function(){
   const data = {
-    1: { laser:'Alejandrita 755nm', fitz:'Fitzpatrick I — Piel muy clara', tag:'Máxima eficacia', desc:'El Alejandrita es tu láser ideal. Alta absorción en melanina, sesiones ultrarrápidas y resultados visibles desde la primera sesión. Candidata perfecta.', wa:'Hola%2C+tengo+piel+muy+clara+(Fitzpatrick+I)+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
-    2: { laser:'Alejandrita 755nm', fitz:'Fitzpatrick II — Piel clara', tag:'Altamente eficaz', desc:'El Alejandrita trabaja a la perfección con tu tono. Precisión máxima, mínima molestia, resultados óptimos desde la primera sesión.', wa:'Hola%2C+tengo+piel+clara+(Fitzpatrick+II)+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
-    3: { laser:'Alejandrita 755nm', fitz:'Fitzpatrick III — Piel intermedia', tag:'Muy recomendado', desc:'Gran absorción en melanina y resultados óptimos. El Alejandrita ofrece la mayor eficacia en tu tipo de piel con seguridad total.', wa:'Hola%2C+tengo+piel+intermedia+(Fitzpatrick+III)+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
-    4: { laser:'Alejandrita o Neodimio', fitz:'Fitzpatrick IV — Piel morena', tag:'Valoración personalizada', desc:'Tu tono está en la zona donde ambas tecnologías pueden funcionar. En la consulta gratuita determinamos cuál es mejor para ti en particular.', wa:'Hola%2C+tengo+piel+morena+(Fitzpatrick+IV)+y+quiero+saber+qué+láser+me+corresponde' },
-    5: { laser:'Neodimio Nd:YAG 1064nm', fitz:'Fitzpatrick V — Piel morena oscura', tag:'Tu tecnología existe', desc:'El Neodimio penetra sin afectar la melanina superficial. Muchas clínicas te han dicho que no pueden tratarte. Nosotros sí — con total seguridad y eficacia demostrada.', wa:'Hola%2C+tengo+piel+oscura+(Fitzpatrick+V)+y+quiero+información+sobre+el+láser+Neodimio+Nd:YAG' },
-    6: { laser:'Neodimio Nd:YAG 1064nm', fitz:'Fitzpatrick VI — Piel muy oscura', tag:'Somos tu clínica', desc:'El Nd:YAG 1064nm es la única tecnología clínicamente segura para tu piel. Especialistas que te entienden y que tienen la solución. Tu piel no es un obstáculo — es nuestra especialidad.', wa:'Hola%2C+tengo+piel+muy+oscura+(Fitzpatrick+VI)+y+quiero+información+sobre+el+láser+Neodimio+Nd:YAG' }
+    1: { laser:'Alejandrita 755nm', label:'Piel muy clara', tag:'Máxima eficacia', facts:['Absorción máxima en melanina','Sesiones ultrarrápidas','Resultado desde la 1ª sesión'], desc:'El Alejandrita es tu láser por excelencia. Alta precisión, mínima molestia y resultados visibles desde la primera sesión.', wa:'Hola%2C+tengo+piel+muy+clara+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
+    2: { laser:'Alejandrita 755nm', label:'Piel clara', tag:'Altamente eficaz', facts:['Alta eficacia comprobada','Mínima molestia','Sesiones precisas y rápidas'], desc:'El Alejandrita trabaja a la perfección con tu tono. Precisión máxima, resultados óptimos desde la primera sesión.', wa:'Hola%2C+tengo+piel+clara+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
+    3: { laser:'Alejandrita 755nm', label:'Piel intermedia', tag:'Muy recomendado', facts:['Eficacia probada en piel media','Protocolo personalizado','Comodidad durante el tratamiento'], desc:'Gran absorción en melanina. El Alejandrita ofrece la mayor eficacia en tu tipo de piel con total seguridad.', wa:'Hola%2C+tengo+piel+intermedia+y+quiero+información+sobre+la+depilación+láser+Alejandrita' },
+    4: { laser:'Alejandrita o Neodimio', label:'Piel morena', tag:'Diagnóstico personalizado', facts:['Evaluación gratuita incluida','Protocolo adaptado a tu tono','Ambas tecnologías disponibles'], desc:'Tu tono está en la zona frontera. En la consulta gratuita evaluamos cuál de las dos tecnologías da mejores resultados para tu caso.', wa:'Hola%2C+tengo+piel+morena+y+quiero+saber+qué+láser+me+corresponde' },
+    5: { laser:'Neodimio Nd:YAG 1064nm', label:'Piel oscura', tag:'Tu solución existe', facts:['Penetración profunda sin dañar melanina','Seguro en pieles oscuras','Donde otros láseres fallan'], desc:'El Neodimio penetra sin afectar la melanina superficial. Muchas clínicas no pueden tratarte — nosotros sí, con total seguridad y eficacia demostrada.', wa:'Hola%2C+tengo+piel+oscura+y+quiero+información+sobre+el+láser+Neodimio+Nd:YAG' },
+    6: { laser:'Neodimio Nd:YAG 1064nm', label:'Piel muy oscura', tag:'Somos tu clínica', facts:['La única tecnología 100% segura','Especialistas en piel oscura','Tu piel no es un obstáculo'], desc:'El Nd:YAG 1064nm es la única tecnología clínicamente validada para piel muy oscura. Tu piel es nuestra especialidad.', wa:'Hola%2C+tengo+piel+muy+oscura+y+quiero+información+sobre+el+láser+Neodimio+Nd:YAG' }
   };
-  const colors = { 1:'#F5D5A8', 2:'#E8B97A', 3:'#D4956A', 4:'#B87044', 5:'#8B4A2A', 6:'#5C2E15' };
+  const colors = { 1:'#F2DFC8', 2:'#E3B98A', 3:'#C9855A', 4:'#A0622E', 5:'#6B3318', 6:'#35160A' };
 
-  document.querySelectorAll('.skin-circle').forEach(btn => {
+  document.querySelectorAll('.skin-chip').forEach(btn => {
     btn.addEventListener('click', function(){
-      document.querySelectorAll('.skin-circle').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.skin-chip').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
       const f = parseInt(this.dataset.fitz);
       const d = data[f];
-      document.getElementById('skinIdle').hidden = true;
-      const result = document.getElementById('skinResult');
-      result.hidden = false;
-      result.classList.remove('sr-animate');
-      void result.offsetWidth;
-      result.classList.add('sr-animate');
-      document.getElementById('srSwatch').style.background = colors[f];
-      document.getElementById('srTag').textContent = d.tag;
-      document.getElementById('srFitz').textContent = d.fitz;
-      document.getElementById('srLaser').textContent = d.laser;
-      document.getElementById('srDesc').textContent = d.desc;
-      document.getElementById('srCTA').href = 'https://wa.me/34624220321?text=' + d.wa;
-      // highlight matching laser type on image badge
-      const badge = document.querySelector('.tech-badge-float strong');
-      if(f >= 4) { badge.textContent = '✓ Apta para pieles oscuras'; }
-      else { badge.textContent = '✓ Para pieles claras y medias'; }
+      const c = colors[f];
+      const panel = document.getElementById('skinPanelInner');
+      const isDark = f >= 4;
+
+      // Fade out → update content → fade in
+      panel.style.opacity = '0';
+      panel.style.transform = 'translateY(10px)';
+      setTimeout(() => {
+        panel.innerHTML = `
+          <div class="sp-header">
+            <div class="sp-dot" style="background:${c};box-shadow:0 0 16px ${c}55"></div>
+            <div>
+              <div class="sp-tag">${d.tag}</div>
+              <div class="sp-label">${d.label}</div>
+            </div>
+          </div>
+          <div class="sp-laser">${d.laser}</div>
+          <ul class="sp-facts">
+            ${d.facts.map(f=>`<li>${f}</li>`).join('')}
+          </ul>
+          <p class="sp-desc">${d.desc}</p>
+          <a href="https://wa.me/34624220321?text=${d.wa}" class="btn btn-primary sp-cta">Reservar consulta gratuita →</a>
+        `;
+        panel.style.opacity = '1';
+        panel.style.transform = 'none';
+        // Update image badge
+        const badge = document.querySelector('.tech-badge-float strong');
+        badge.textContent = isDark ? '✓ Apta para pieles oscuras' : '✓ Para pieles claras y medias';
+      }, 180);
     });
   });
 })();
