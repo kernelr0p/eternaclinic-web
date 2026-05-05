@@ -46,7 +46,12 @@
       "https://eternaclinic.es/images/hero-laser-orig.jpeg",
       "https://eternaclinic.es/images/radiofrecuencia.webp"
     ],
-    "logo": "/images/logo.jpg",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://eternaclinic.es/images/logo.jpg",
+      "width": 512,
+      "height": 512
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Avenida de Europa, 13",
@@ -92,6 +97,30 @@
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Radiofrecuencia Facial", "description": "Efecto tensor y redefinición del óvalo facial sin cirugía." } }
       ]
     }
+  }
+  </script>
+
+  <!-- ═══ SCHEMA: Organization (logo for Google Search) ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://eternaclinic.es/#organization",
+    "name": "Eterna Clinic",
+    "url": "https://eternaclinic.es",
+    "logo": {
+      "@type": "ImageObject",
+      "@id": "https://eternaclinic.es/#logo",
+      "url": "https://eternaclinic.es/images/logo.jpg",
+      "contentUrl": "https://eternaclinic.es/images/logo.jpg",
+      "width": 512,
+      "height": 512,
+      "caption": "Eterna Clinic"
+    },
+    "image": { "@id": "https://eternaclinic.es/#logo" },
+    "sameAs": [
+      "https://www.instagram.com/eternaclinic_/"
+    ]
   }
   </script>
 
