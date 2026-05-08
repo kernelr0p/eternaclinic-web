@@ -5,9 +5,29 @@ body {
 }
 .content-section {
   background: #1A0E00;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+.content-section-alt {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
 }
 .page-hero {
   background: #1A0E00 !important;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+.cta-section {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Header — always dark on treatment pages (no hero photo to float over) */
