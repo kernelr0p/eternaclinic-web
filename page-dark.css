@@ -52,9 +52,19 @@ html, body {
   background: rgba(255,247,240,.9) !important;
 }
 
-/* FAQ wide wrapper — full container width */
+/* Content wrappers — full container width */
 .faq-wide {
   width: 100%;
+}
+/* Ensure prose sections and comparison tables fill the container */
+.container > div,
+.container > p {
+  max-width: none;
+}
+/* Exception: hero subtitle and CTA subtitle stay narrow for readability */
+.page-hero p[style*="max-width"],
+.cta-section p[style*="max-width"] {
+  /* keep their inline max-width */
 }
 
 /* FAQ accordion */
