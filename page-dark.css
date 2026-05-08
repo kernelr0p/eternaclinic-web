@@ -1,0 +1,40 @@
+/* Dark background override for all treatment/guide pages */
+body {
+  background: #1A0E00;
+  color: rgba(255,247,240,.85);
+}
+.content-section {
+  background: #1A0E00;
+}
+.page-hero {
+  background: #1A0E00 !important;
+}
+
+/* FAQ accordion */
+.faq-a {
+  display: none;
+  margin-top: 0;
+}
+.faq-item.open .faq-a {
+  display: block;
+}
+.faq-q {
+  cursor: pointer;
+  position: relative;
+  padding-right: 28px;
+  user-select: none;
+}
+.faq-q::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--gold, #9A690F);
+  line-height: 1;
+  transition: transform .25s;
+}
+.faq-item.open .faq-q::after {
+  transform: rotate(45deg);
+}
