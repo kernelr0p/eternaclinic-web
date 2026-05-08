@@ -10,6 +10,28 @@ body {
   background: #1A0E00 !important;
 }
 
+/* Header — always dark on treatment pages (no hero photo to float over) */
+#header {
+  background: rgba(26,14,0,.97) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+#header nav a {
+  color: rgba(255,247,240,.75) !important;
+}
+#header nav a:hover {
+  color: var(--gold-pale, #E8C97A) !important;
+}
+#header .logo-text {
+  color: rgba(255,247,240,.95) !important;
+}
+#header .header-phone {
+  color: rgba(255,247,240,.65) !important;
+}
+#header .hamburger span {
+  background: rgba(255,247,240,.9) !important;
+}
+
 /* FAQ accordion */
 .faq-a {
   display: none;
