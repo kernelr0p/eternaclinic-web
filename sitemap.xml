@@ -3,104 +3,110 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://eternaclinic.es/</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/depilacion-laser-alcobendas/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://eternaclinic.es/blog/depilacion-laser-alcobendas/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/depilacion-laser-alejandrita/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://eternaclinic.es/blog/depilacion-laser-alejandrita/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/depilacion-laser-piel-morena/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://eternaclinic.es/blog/depilacion-laser-piel-morena/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/depilacion-laser-hombres/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://eternaclinic.es/blog/depilacion-laser-hombres/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/alejandrita-vs-neodimio/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://eternaclinic.es/blog/depilacion-laser-moraleja/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://eternaclinic.es/blog/alejandrita-vs-neodimio/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/alejandrita-vs-diodo/</loc>
-    <lastmod>2026-05-08</lastmod>
+    <loc>https://eternaclinic.es/blog/alejandrita-vs-diodo/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.92</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/cuantas-sesiones-depilacion-laser/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://eternaclinic.es/blog/cuantas-sesiones-depilacion-laser/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/radiofrecuencia-facial-alcobendas/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://eternaclinic.es/blog/radiofrecuencia-facial-alcobendas/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/radiofrecuencia-corporal-alcobendas/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://eternaclinic.es/blog/radiofrecuencia-corporal-alcobendas/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/criolipolisis-alcobendas/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://eternaclinic.es/blog/criolipolisis-alcobendas/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/electroestimulacion-hifem-alcobendas/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://eternaclinic.es/blog/electroestimulacion-hifem-alcobendas/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://eternaclinic.es/hollywood-peel-alcobendas/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <loc>https://eternaclinic.es/blog/hollywood-peel-alcobendas/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://eternaclinic.es/blog/depilacion-laser-alejandrita/</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eternaclinic.es/blog/depilacion-laser-moraleja/</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eternaclinic.es/blog/</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://eternaclinic.es/blog/laser-alejandrita-vs-neodimio-piel-oscura/</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://eternaclinic.es/blog/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eternaclinic.es/privacidad/</loc>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://eternaclinic.es/aviso-legal/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
