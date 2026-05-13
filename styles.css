@@ -420,31 +420,9 @@
     /* Facial / Corporal tabs */
     .treatment-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
-    .treatment-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      border: 1px solid transparent;
-    }
-    .treatment-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(154,105,15,.2); }
-    .treatment-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(154,105,15,.1);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      font-size: 1.4rem;
-    }
-    .treatment-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
-    .treatment-card p { font-size: .88rem; color: var(--text-light); line-height: 1.5; }
 
     /* ── TECH SPOTLIGHT / SKIN SELECTOR ── */
     #tecnologia {
@@ -1001,6 +979,7 @@
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
       .stat-item:nth-child(2) { border-right: none; }
       .laser-grid { grid-template-columns: 1fr; }
+      .treatment-grid { grid-template-columns: 1fr; }
       .tech-grid { grid-template-columns: 1fr; }
       .tech-image-wrap img { height: 320px; }
       .skin-palette { gap: 4px; }
@@ -1167,6 +1146,9 @@
       border-right: 1.5px solid var(--gold);
       border-top: 1.5px solid var(--gold);
       transform: rotate(45deg);
+    }
+    @media (min-width: 600px) and (max-width: 900px) {
+      .treatment-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       .proceso-grid {
