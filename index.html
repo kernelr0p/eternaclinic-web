@@ -1067,18 +1067,30 @@ function skinPick(n) {
     btn.addEventListener('click', () => activateTab(btn.dataset.tab));
   });
 
-  const hashTab = { '#tab-laser': 'laser', '#tab-facial': 'facial', '#tab-corporal': 'corporal' };
+  const hashTab = { 'tab-laser': 'laser', 'tab-facial': 'facial', 'tab-corporal': 'corporal' };
 
   function handleHash() {
-    const tab = hashTab[window.location.hash];
-    if (tab) {
-      activateTab(tab);
+    const hash = window.location.hash.replace('#', '');
+    if (hashTab[hash]) {
+      activateTab(hashTab[hash]);
       setTimeout(() => document.getElementById('servicios').scrollIntoView({ behavior: 'smooth' }), 100);
     }
   }
 
+  // Intercept clicks on tab links — works both from this page and on arrival
+  document.querySelectorAll('a[href*="#tab-"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const hash = link.getAttribute('href').replace(/.*#/, '');
+      if (hashTab[hash]) {
+        e.preventDefault();
+        activateTab(hashTab[hash]);
+        document.getElementById('servicios').scrollIntoView({ behavior: 'smooth' });
+        history.pushState(null, '', '/#' + hash);
+      }
+    });
+  });
+
   handleHash();
-  window.addEventListener('hashchange', handleHash);
 
   // ── FAQ accordion ──
   document.querySelectorAll('.faq-q').forEach(btn => {
